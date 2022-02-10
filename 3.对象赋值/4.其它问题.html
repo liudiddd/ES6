@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 赋的值不是对象，而是其他类型，会默认转为对象类型
+    let {x,y} = 1; // 等价于 let{x,y} = Object(1); 而Object(1)为{__proto__:Number,[PrimitiveValue]1}
+    console.log(x, y); //undefined undefined
+    console.log(Object(1)); //
+    // let{__proto__} = 2;
+    // console.log(__proto__); // Number
+
+    // 数组转为对象，属性名为所有下标，还有length，__proto__
+    console.log(Object([1, 2, 3, 4, 5]));
+    let {length, __proto__} = [1,2,3,4,5]; // 等价于 let {length, __proto__} = Object([1, 2, 3, 4, 5])
+    console.log(length, __proto__); // 5, {...}
+
+    // 为了避免JavaScript引擎将{a}理解为一个代码块，不要将{a}写在行首
+    let a;
+    // {a} = {a:"aaa"};
+
+
+
+
+</script>

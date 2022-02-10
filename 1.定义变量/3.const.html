@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+    // const 定义变量的时候，定义的是静态变量，不能修改，必须要赋值
+    const g = 10; // 静态变量若不赋值，报错 Missing initializer in const declaration
+    // g = 20; // 不能被修改
+
+    // const g = 20; // 报错，const跟let一样，不能重复声明
+
+    let a = 1;
+    // const a = 2; // let和const声明的变量也不能重复声明
+
+    {
+        const a = 3; //但是，私有作用域和外部作用域可以声明同名的变量，因为不在同一个作用域中
+    }
+
+</script>

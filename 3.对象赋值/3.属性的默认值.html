@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let obj = {y:2};
+    console.log(obj.x); // undefined
+
+    let {x,y} = {y:2};
+    console.log(x, y); // undefined 2
+
+    let {m:n} = {} // m是undefined，n也是undefined
+    console.log(n);
+
+    let {p:k=4} = {}; // 变量k的默认值为4，当p的值为undefined时，k取默认值4
+</script>

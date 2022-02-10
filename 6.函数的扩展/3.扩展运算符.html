@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    //...三个点为扩展运算符，可以将数组变为非数组，也可以将非数组变为数组
+    let arr = [1,2,3];
+    console.log(...arr); // 将数组arr变为非数组 ，  1 2 3
+
+    // ...将有length属性的对象变为数组
+    let str = '12345';
+    console.log([...str]); // 将字符串变为数组
+
+    // 将类数组变为数组
+    function fn(){
+        let arr = [...arguments]; // arguments是一个类数组
+        return arr.sort(function(a, b){
+            return a - b;
+        });
+    }
+
+    console.log(fn(1, 5, 2, 10, 7, 3, 6)); // [1, 10, 2, 3, 5, 6, 7]
+
+    // 应用
+    // 求最大值
+    let arr1 = [1, 10, 99, 34, 125, 33, 2];
+    let max = Math.max(...arr1);
+    console.log(max); // 125
+    // 第二种方式，使用apply()方法
+    // 第一个参数修改this，传null，仍为window
+    // 后面的参数就是给函数传参数了
+    console.log(Math.max.apply(null, arr1)); // 125
+
+    // 数组的拼接
+    let arr2 = [7,8,9];
+    let arr3 = [2,3,4];
+    // 方式1，使用concat方法
+    console.log(arr2.concat(arr3)); // [7, 8, 9, 2, 3, 4]
+    //方式2，将数组转为非数组
+    console.log([...arr2, ...arr3]); // [7, 8, 9, 2, 3, 4]
+
+</script>

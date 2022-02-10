@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">box</div>
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let fn = function(x){
+        let a = 1;
+        return a;
+    }
+    console.log(fn(1)); // 1
+
+    // 箭头函数，跟上面使用function关键字声明函数的效果一样
+    let fn1 = (x) => {
+        let a = 1;
+        return a;
+    }
+    console.log(fn1(1)); // 1
+
+    // 如果函数中只有一个 return;， 则可省略不写
+    let fn2 = (x) => {}
+
+    // 箭头函数中的this问题
+    // 函数执行时，前面有.点，this就是.点前面的对象
+    // 如果函数前面没有.点：
+    // 自执行函数中，this永远是undefined
+    // 通过bind给对象绑定函数时，this就是被绑定的对象
+    // 全局定义的普通函数，this是undefined
+    function fn3(){
+        console.log(this); // undefined
+    }
+    fn3();
+
+    (function(){console.log(this)})(); // 自执行函数  undefined
+
+    let obj = {
+        fn: function(){
+            console.log(this); // obj
+            // 普通函数的this是调用时的对象，而箭头函数没有this，它里面的this是定义时外部的this 
+            let f = () => {
+                console.log(this); // obj
+            };
+            f();
+        },
+        fn1: () => {
+            console.log(this); // Window
+        }
+    };
+    obj.fn(); // obj
+    obj.fn1(); // Window
+
+    //
+    box.onclick = () => {
+        console.log(this); // window
+    }
+
+
+</script>

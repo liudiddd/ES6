@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // Array原型中的方法是供实例使用的
+
+    // copyWithin(target, start, end)
+    // target 从该位置开始替换数据，必填
+    // start 从该位置开始开始读取数据，默认为0，选填
+    // end 到该位置前停止读取数据，默认是数组的长度，选填
+    let arr = [1,2,3,4,5,6,7,8];
+    console.log(arr.copyWithin(0, 1, 5)); // 2 3 4 5 5 6 7 8
+
+    // find 返回当前项
+    let item = arr.find(function (item, index, input){
+        // item 当前项
+        // index 索引
+        // input 原数组
+        // 从头到尾遍历数组的每个元素，该函数返回true，则停止往下查找，返回当前项
+        // 如果遍历完都没有返回true，则返回undefined
+        return index === 3;
+    });
+    console.log(item); // 5
+
+    // findIndex 返回当前项的索引
+    let idx = arr.findIndex(function (item, index, input){
+        // item 当前项
+        // index 索引
+        // input 原数组
+        // 从头到尾遍历数组的每个元素，该函数返回true，则停止往下查找，返回当前项的索引
+        // 如果遍历完都没有返回true，则返回-1
+        return item === 3;
+    });
+    console.log(idx); // 3
+
+    // fill(value, start, end) 填充数组的，通常用来初始化数组
+    // value 填充的值，必填
+    // start 开始填充的位置（包括该位置），默认值0，选填
+    // end 停止填充的位置（不包括该位置），默认值数组长度，选填
+    let arr1 = [1,2,3,4,5,6];
+    arr1.fill(1); // 每一项都为1
+    console.log(arr1); // 1 1 1 1 1 1
+    // 得到有7个1的数组
+    let arr2 = Array(7).fill(1);
+    console.log(arr2); // 1 1 1 1 1 1 1
+    console.log('typeof Array: ', typeof Array)
+    console.log('Array: ', Array)
+    // includes 判断数组中是否包含参数项，返回true或false
+    console.log(arr1.includes(3)); // false
+
+
+
+
+</script>

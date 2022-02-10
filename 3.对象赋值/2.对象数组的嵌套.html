@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 对象解构赋值
+    let obj = {a1:[1,2,3],a2:"aaa"};
+    // let {a2,a1} = obj;
+    let {a2,a1:[x,y]} = obj;
+    console.log(a2, x, y); // aaa 1 2
+
+    let obj1 = {s:{n:'1'},n:[1,'2',3,'4',5],m:[[1]]};
+    let {m:[x1],s:{n},n:[,...m2]} = obj1;
+    console.log(x1, n, m2);
+
+    // 数组，元素类型可不同
+    let arr = ["aaa", 2, false, {name:"Jack"}];
+    console.log(arr);
+
+</script>

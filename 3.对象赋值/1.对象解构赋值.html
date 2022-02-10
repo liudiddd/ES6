@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let obj = {
+        n1: "p1",
+        n2: "p2"
+    };
+    // let n1 = obj['n1'];
+    // let n2 = obj['n2'];
+    // 以上两行中，变量名和对象的属性名一样时，可以用对象的解构赋值，这两行等价于下面的一行
+    let {n1,n2} = obj;
+    console.log(n1, n2);
+    // 若变量名不等于属性名，使用对象解构赋值，如变量x1赋值为obj.n1属性值，x2赋值为obj.n2属性值
+    let {n1:x1, n2:x2} = obj;
+    console.log(x1, x2); // p1 p2
+
+
+</script>

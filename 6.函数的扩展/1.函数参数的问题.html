@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 函数的参数可以加默认值，只有不传实参的时候才会走默认值
+    function fn1(x='x', y){
+        console.log(x, y);
+    }
+    fn1(1); // 1 undefined
+    fn1(undefined,2); // x 2
+
+
+    function fn2(x, y, z){
+        console.log(arguments.length); // 实参的个数
+    }
+    fn2(1, 2, 3, 4, 5); // 5
+    console.log(fn2.length); // 没有默认值的情况下，fn2.length为形参的个数，3
+
+    let fn3 = function(x, y=0){
+
+    }
+    console.log(fn3.length); // 函数参数有默认值的情况下，fn3.length为默认值的索引位置 1
+</script>

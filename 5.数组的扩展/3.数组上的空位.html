@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 空位不是undefined
+    let arr1 = Array(3); // 3个空位
+    let arr2 = [undefined, undefined, undefined];
+
+    console.log(1 in arr1); // false 判断数组arr1下标为1的位置有没有值，false表示没有值，是空位
+    console.log(1 in arr2); // true arr1[1]有值，值为undefined
+
+    let arr3 = [1,,,,3,,];
+    console.log(arr3.length); // 6
+    arr3.forEach(function(item){ // forEach是es5的语法,es5对空位的处理不太一致，大部分会跳过空位 ，但是es6中的遍历函数不会跳过空位，会将空位处理为undefined
+        console.log(item); // 打印两行，1 和 3
+    });
+
+
+</script>

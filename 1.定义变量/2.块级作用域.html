@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    // 'use strict';
+    // 块级作用域就是大括号 {}，属于私有作用域，如function f(){}、if(){}、for(){}
+    function fn(){
+        let a = 0;
+        console.log(a);
+    }
+    let a = 10;
+    if(a){ // a存在，并且不为0
+        let a = 1;
+        console.log(a);
+    }
+    let oLis = document.getElementsByTagName("li");
+    /*
+    for(var i = 0; i < oLis.length; i++){
+        oLis[i].onclick = function(){
+            console.log(i); // 输出都为4，因为onclick事件回调是异步的，执行回调函数时，i已经为4了。可以通过let的块级作用域解决此问题
+        }
+    }
+    */
+    for(let i = 0; i < oLis.length; i++){ // let变量具有块级作用域特性，每循环一次，都会生成一个私有的作用域
+        oLis[i].onclick = function(){
+            console.log(i); // 输出都为4，因为onclick事件回调是异步的，执行回调函数时，i已经为4了。可以通过let的块级作用域解决此问题
+        }
+    }
+
+    // 私有作用域中有声明的变量，则不会去外层作用域去找
+    let b = 1;
+    function fb(){
+        // 报错信息为：Cannot access 'b' before initialization ，函数的私有作用域中声明了b，但还没初始化
+        console.log(b); // 若私有作用域下有b的声明，则此行报错，若私有作用域下没有b的声明，则会去上层的全局作用域找b变量
+        // let b = 2;
+        console.log(b);
+    }
+    fb();
+
+    // 自执行函数
+    {
+        let a = 100;
+        console.log(a);
+    }
+
+    // 注意，用eval将字符串转为对象的时候，一定要加小括号()，否则会将{}识别为自执行函数
+    let obj = {};
+    // 测试eval函数
+    function ft(){
+        let strScripts = "let g = 1;console.log(g)"
+        // eval(strScripts)
+        eval('let g = 2')
+        // with(window){eval(strScripts)}
+        console.log('g: ', g) // g is not defined
+    }
+    ft()
+
+
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+    let [f0,f1] = [1];
+    console.log(f0, f1); // 1 undefined
+    let [f2,f3=3] = [2];
+    console.log(f2, f3); // 2 3 ，f3的默认值为3
+
+    // 如果变量对应位置的值严格等于（即"==="）undefined，那么该变量取默认值，否则取该位置的值，而不取默认值
+    let [f=1] = [undefined];
+    console.log(f); // 1，f取默认值1
+    let [ff=1] = [null];
+    console.log(ff);
+
+    //
+    let a;
+    console.log(a); // undefined
+    console.log(a == undefined);// true
+    console.log(a === undefined);// true
+    console.log(null == undefined);//true
+    console.log(null === undefined);//false
+
+    //
+    function fn(){
+        console.log('hehe');
+    }
+    let [x=fn(),y=9] = [1]; // 只要x对应位置的值不为undefined，则fn()不会执行。其中fn()表示fn函数执行，而fn表示函数引用
+
+
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 判断相等使用===或==，但是NaN和任何值都不相等
+    // 使用Object.is()判断NaN
+    console.log(Object.is(NaN, NaN)); // true
+
+    let arr = [1,2,NaN,NaN,1,2];
+    console.log(arr.includes(NaN)); // true
+    // 去重
+    let arr1 = [];
+    arr.forEach((item) => {
+        let found = false;
+        arr1.forEach((item1) => {
+            if(Object.is(item, item1))
+                found = true;
+        });
+        if(!found)
+            arr1.push(item);
+    });
+    console.log(arr1); // [1, 2, NaN]
+
+    // Object.assign(obj1, obj2) 将对象obj2的属性合并到obj1，并返回obj1
+    // 有同名的属性，值会覆盖
+    let obj1 = {a:'a1',n:'n1'}, obj2 = {a:'a2', b:'b2'};
+    console.log(Object.assign(obj1, obj2)); // {a: "a2", n: "n1", b: "b2"}
+
+
+    // ==比较两个对象
+    let obj3 = {a:'aaa'}, obj4 = {a:'aaa'};
+    console.log(obj3 == obj4); // false
+    console.log(obj3 === obj4); // false
+    console.log(Object.is(obj3, obj4)); // false
+
+    // Object.getOwnPropertyDescriptor(str, 'length')  查看某个对象的私有属性的描述信息
+    let str = "123";
+    console.log(Object.getOwnPropertyDescriptor(str, 'length')); // {value: 3, writable: false, enumerable: false, configurable: false}
+    console.log(Object.getOwnPropertyDescriptor([4,5,6], 'length')); // {value: 3, writable: true, enumerable: false, configurable: false}
+
+    // 属性遍历
+    // for in
+    // Object.keys() 返回一个数组，包括对象自身的私有的、所有可枚举的属性
+    // Object.getOwnPropertyNames() 返回对象所有属性，包括不可枚举属性
+    let obj5 = {a:'aa',b:'bb',c:'cc'};
+    for(let p of Object.keys(obj5)){
+        console.log(p); // a b c
+        // {value: "aa", writable: true, enumerable: true, configurable: true}
+        // {value: "bb", writable: true, enumerable: true, configurable: true}
+        // {value: "cc", writable: true, enumerable: true, configurable: true}
+        console.log(Object.getOwnPropertyDescriptor(obj5, p));
+    }
+
+</script>

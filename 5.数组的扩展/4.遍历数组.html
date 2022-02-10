@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let arr = [1,2,3,4,5];
+
+    // for in 遍历数组索引
+    for(let i in arr){
+        console.log(i); // 0 1 2 3 4
+    }
+
+    // for of 遍历数组项
+    for(let a of arr){
+        console.log(a); // 1 2 3 4 5
+    }
+
+    // for of arr.keys 遍历数组的索引
+    for(let k of arr.keys()){
+        console.log(k); // 0 1 2 3 4
+    }
+
+    // entries() 遍历数组项和索引
+    for(let e of arr.entries()){ // e是一个数组，第一项是index，第二项是item
+        console.log(e[0], e[1]); // 0 1   1 2   2 3   3 4   4 5
+    }
+    // 以上e可以用数组的解构赋值
+    for(let [index, item] of arr.entries()){
+        console.log(index, item); // 0 1   1 2   2 3   3 4   4 5
+    }
+
+    arr.forEach((item, idx, array)=>{
+        console.log(item, idx)
+    })
+
+
+</script>

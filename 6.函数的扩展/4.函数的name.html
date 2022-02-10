@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    //
+    let fn = function(){
+        console.log(this); // undefined
+    }
+    fn();
+
+    console.log(fn.name); // fn
+
+    console.log((function () { }).name); // 匿名函数的name为空字符串
+
+    // bind
+    let obj = {};
+    let fn1 = fn.bind(obj); // fn1和fn一模一样，只不过fn1中的this为此处的obj了
+    fn1(); // {}
+    console.log(fn1.name); // bound fn ，通过bind方法得到的函数，其name为：bound [原函数名]
+
+    // new Function，通过new Function方式创建的函数，名为 anonymous
+    let f = new Function('n', 'return n;')
+    console.log(f.name); // anonymous
+
+
+</script>

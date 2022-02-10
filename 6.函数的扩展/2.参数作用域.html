@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 形参作用域问题
+
+    let n = 10, m = 20;
+    function fn1(x=n, y=m){ // 此处的n和m，会从函数的外层作用域去找
+        let n = 1, m = 2;
+        console.log(x, y); // 10 20
+    }
+    fn1();
+
+    let x = 10;
+    function fn2(x=1, y=x){ // 函数形参所在的小括号()是一个单独的作用于，用到变量的时候，先从自己作用域有没有，若没有则往上层作用域去找
+        console.log(y); // 1
+    }
+    fn2();
+
+</script>

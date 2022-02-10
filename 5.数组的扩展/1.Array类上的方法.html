@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // Array() 是一个类，也是一个函数，将传进来的值变为数组返回
+    console.log(Array(1, 2, 3, 4, 5)); // 返回一个数组，元素为: 1 2 3 4 5
+    console.log(Array(4)); // 返回一个数组，元素个数为4，每个元素为空
+
+    // Array.of()，与Array()的区别是，只传一个参数的时候，返回的是只有一个元素的数组
+    console.log(Array.of(4)); // 4
+
+    // Array.from()，传一个数组或类数组，返回值是一个新的数组
+    // 如果传入一个数组，则返回这个数组的克隆，如果传一个类数组，则根据类数组构造一个数组返回。
+    // 该方法通常是将类数组变为数组
+    let arr = [1,2,3,4];
+    let newArr = Array.from(arr);
+    console.log('', newArr);
+
+    function toArray(){
+        return Array.from(arguments);
+    }
+    console.log(toArray(1, 2, 3, 4, 5, 6)); // 将不定参数变为一个数组
+
+
+
+
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let set = new Set([1,2,3,1,2,3]);
+    console.log(set); // 1 2 3
+    // add()
+    set.add(5).add(6);
+    console.log(set); // 1 2 3 5 6
+
+    // has() 判断有没有指定项
+    console.log(set.has(6)); // true
+
+    // delete()
+    console.log(set.delete(1)); // true
+    console.log(set.delete(10)); // false
+
+    // clear()
+    console.log(set.clear()); // 没有返回值，返回值就是undefined
+
+    let arr1 = [1,2,3,4,7,8,9];
+    let arr2 = [3,5,6,8];
+    // 并集（去重）
+    function bj(arr1, arr2){
+        return [...new Set([...arr1, ...arr2])];
+    }
+    console.log(bj(arr1, arr2)); //  [1, 2, 3, 4, 7, 8, 9, 5, 6]
+
+    // 交集
+    function jj(arr1, arr2){
+        return arr1.filter((item1) => {
+            return arr2.includes(item1);
+        });
+    }
+
+    console.log(jj(arr1, arr2)); // [3, 8]
+    console.log(arr1); // [1, 2, 3, 4, 7, 8, 9]
+
+    // 差集=并集-交集
+    function cj(arr1, arr2) {
+        let bj = bj(arr1, arr2);
+        let jj = jj(arr1, arr2);
+        return bj.filter((item1) => {
+            return !jj.includes(item1); // 返回true的元素留着，其他的删了
+        });
+    }
+    console.log(cj(arr1, arr2)); // [1, 2, 4, 7, 9, 5, 6]
+
+
+
+</script>

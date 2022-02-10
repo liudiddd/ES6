@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let a = 'aa', b = 'bb';
+    let obj = {
+        a: "AA" // 属性名为a，静态写死的
+    }
+    console.log(obj.a); // AA
+    console.log(obj['a']); // AA
+
+    let obj1 = {
+        [a]: "AAA", // 属性名为变量a的值，动态的
+        [a+b]: "ppppp",
+        fn(){} // 等价于 fn: function(){}
+    }
+    console.log(obj1); // obj1{aa: "AAA", aabb: "ppppp"}
+</script>

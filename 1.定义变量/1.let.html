@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+'use strict'; // 使用严格模式
+    // var变量有预声明（即预解释）
+    /*
+    console.log(a); // 只声明，未定义的变量为undefined
+    var a = 1;
+    console.log(a); // 1
+    */
+
+    // let变量没有预解释
+
+    // console.log(a); // 报错 Uncaught ReferenceError: Cannot access 'a' before initialization，报错了，不继续执行
+    let a = 2;
+    console.log(a);
+
+    function fn(){
+        console.log(b); // 局部变量和全局变量，在定义前访问都会报错
+        let b = 0;
+        console.log(b);
+    }
+
+
+
+    // fn();
+
+    //2.预解释时，顺序找所有的var和function修饰的变量，并声明，同名的变量不再重新声明，但要重新定义（赋初始值）
+    /*
+    var b = 12;
+    var b = 13;
+    function b(){
+        console.log(b);
+    }
+
+    console.log(b); // 13
+    // b(); // 报错，b is not a function，因为b第一次被声明时，是一个变量，不是一个函数
+    */
+    // let变量不能重复定义，不论是变量还是函数，都不能重名
+    let b = 12;
+    // let b = 13; // Identifier b has already been declared
+    // function b(){} // Identifier b has already been declared
+
+    // es6中，虽然不进行预解释，但在代码执行前也是先将定义的变量提前过滤一遍，一旦发现不合法的就直接报错了，代码也不会执行了
+    // console.log(A); // 1.let.html:53 Uncaught ReferenceError: Cannot access 'A' before initialization
+    let A = 10;
+    // let A = 30; // 报错  Uncaught SyntaxError: Identifier 'A' has already been declared 
+
+    // 定义同时运行函数
+    (function func(){
+        console.log('定义同时并运行函数')
+    })()
+    let func2 = () => {
+        console.log('func2...')
+    }
+    console.log('typeof func2', typeof func2) // function 
+    // (() => {
+    //     console.log('定义同时并运行函数2')
+    // })()
+</script>

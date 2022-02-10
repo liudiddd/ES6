@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+    let [a,...b] = [1,2,3,4,5,6]; // 声明两个变量a和b，a是一个数字，...b表示b是一个数组
+    console.log(a, b);
+
+    let [,,x,,...y] = [1,2,3,4,5,6,7,8,9,0];
+    console.log(x, y); // 3 ->5 6 7 8 9 0
+</script>

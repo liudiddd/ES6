@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    let str = 'I LOVE YOU';
+    document.body.innerHTML = '<h1>' + str + '</h1>';
+
+    let str1 = `<h1>${str}</h1>`;
+    console.log(str1); // <h1>I LOVE YOU</h1>
+
+    let x = 1;
+    let y = 2;
+    console.log(`${x}+${y}=${x + y}`);
+
+    // 调用函数
+    function fn(s){
+        return s;
+    }
+    let s2 = "xxx";
+    console.log(`函数fn输出结果为:${fn(s2)}`);
+
+    // new Function 方式创建函数
+    let s3 = 'return ' + '`Hello ${wd}`'
+    let fun = new Function('wd', s3);
+    console.log(fun("ZFPX"));
+
+    //new Function
+    let s4 = 'return a';
+    let fun1 = new Function('a', s4);
+    console.log(fun1('aaaa'));
+
+</script>

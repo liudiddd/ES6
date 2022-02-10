@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    'use strict';
+
+    // 使用构造函数创建一个Map实例
+    // 传入一个数组，数组项是一个二元数组，键和值可以为任意数据类型
+    let map = new Map([[1,'a'],['a','A'],[{name:'jack'},'Jack']]);
+    console.log(map);
+
+    // 方法 get set
+    console.log(map.get(1), map.get('a'), map.get(123)); // a A undefined
+    map.set('b','B');
+    console.log(map.get('b')); // B
+
+    // 将数组变为map
+    let map1 = new Map();
+    let arr = ['a','b','c','d'];
+    arr.forEach((item, index) => {
+        map1.set(index, item);
+    });
+    console.log(map1);
+
+    // 遍历map
+    map1.forEach((value, key, map) => {
+        console.log(key, value);
+    });
+    for(let k in map1.keys()){
+        console.log(k);
+    }
+    for(let v in map1.values()){
+        console.log(v);
+    }
+    for(let [k,v] in map1.entries()){
+        console.log(k, v);
+    }
+
+
+</script>
